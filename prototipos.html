@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Encuesta</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    
+    form {
+      margin-top: 20px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #666;
+    }
+    
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+    
+    input[type="submit"] {
+      display: block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .qrcode {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode"></script>
+  <script>
+    $(document).ready(function() {
+      var url = window.location.href;
+      var qrcode = new QRCode(document.getElementById("qrcode"), {
+        text: url,
+        width: 128,
+        height: 128
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Encuesta</h1>
+    
+    <form action="mailto:chillakiller0101@gmail.com" method="post" enctype="text/plain">
+      <label for="pregunta">¿Qué prototipo crees que es mejor?</label>
+      <br>
+      <input type="radio" id="opcion1" name="respuesta" value="opcion1">
+      <label for="opcion1">Prototipo 1</label>
+      <br>
+      <input type="radio" id="opcion2" name="respuesta" value="opcion2">
+      <label for="opcion2">Prototipo 2</label>
+      <br>
+      <input type="radio" id="opcion3" name="respuesta" value="opcion3">
+      <label for="opcion3">Prototipo 3</label>
+      
+      <input type="submit" value="Enviar respuestas">
+    </form>
+  </div>
+</body>
+</html>
